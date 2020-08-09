@@ -1,0 +1,49 @@
+{% extends "basic_app/base.html" %}
+
+    {% block block_head %}
+        <title>GoApps</title>
+    {% endblock %}
+
+
+    {% block block_body %}
+        <h1>Welcome to index page!</h1>
+        
+        <h2>This is example of templates inheritance</h2>
+        <br>
+        <h1> {{ text|upper }} <span style="font-size:large"> <sup> :- This is actual "hello world" but with the help of template filter we convert using pipe operator (text|upper) (text|lower) (text|title)</span> </sup></h1>
+        <h1> {{ text|lower }} </h1>
+        <h1> {{ text|title }} </h1>
+        <h1> {{ number }} </h1>
+        <h1> {{ number|add:'50' }} <span style="font-size:large"> <sup> Adding 50 into orginal number(100) by using (number|add:'50') </sup> </span> </h1>
+
+        <ul>
+            <li>To create our own template filter :- we have to follow some convention...</li>
+            <ol>
+                <li>Create a folder (templatetags) inside 'app' folder... at the label of models.py file</li>
+                <li>create a file (__init__.py) inside 'templatetags' folder</li>
+                <li>create a file (with any name eg: my_extras.py) </li>
+            </ol>
+        </ul>
+
+        {% load my_filter %}
+
+        <h2> Now cutting the original text "{{text}}" just the below of this paragraph by using 'default filter' => "cut"</h2>
+        <h3> {{ text|cut:'hello' }} </h3>
+        <br>
+
+        <h2> Now, original text "{{text}}" into upper case just the below of this paragraph by using 'custom filter' => "upCase"</h2>
+        <h3> {{ text|upCase }} </h3>
+        <br>
+
+        <h2> Now cutting the original text "{{text}}" just the below of this paragraph by using 'custom filter' => "text_replace"</h2>
+        <h3> {{ text|text_replace:'hello' }} </h3>
+        <br>
+
+
+
+    {% endblock %}
+    
+
+
+
+

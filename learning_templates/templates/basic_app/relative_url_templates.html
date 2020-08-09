@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Relative</title>
+    </head>
+    <body>
+        <h1>Welcome to realtive url templates</h1>
+        <!-- <a href="basic_app/other.html"> The other page </a>  --> <!-- now we use relative template (by templates tagging method and method is { % url 'app_name: name (name's tag value)' %}-->
+
+        <a href="{% url 'basic_app:other' %}"> Link to other </a> 
+        <!-- <a href="{ % 'url basic_app:other_1' %}"> The other page </a>   -->   <!-- In basic_app/urls.py check the 'name' of url_pattern of 'other' page which is comment at line number 11  -->
+
+        <br>
+        <a href="{% url 'admin:index' %}"> Link to admin </a>   <!-- Admin app is already installed in project's setting and admin have own urls.py file and 'variable' is 'admin', 'name' = 'index' -->
+
+        <br>
+        <a href="{% url 'index' %}"> Link to index/home </a> 
+
+
+    </body>
+</html>
